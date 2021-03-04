@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Test Entretien{% endblock %}
+
+{% block body %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">libelle</th>
+      <th scope="col">short_libelle</th>
+      <th scope="col">market_cap</th>
+      <th scope="col">price</th>
+      <th scope="col">volume</th>
+      <th scope="col">date_lancement</th>
+      <th scope="col">multiple_of_two</th>
+      <th scope="col">day</th>
+      <th scope="col">order_by_volume</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cryptoMoney in allTest %}
+    <tr>
+    
+      <th scope="row">{{ cryptoMoney.id }}</th>
+      <td>{{ cryptoMoney.libelle }}</td>
+      <td>{{ cryptoMoney.shortLibelle }}</td>
+      <td>{{ cryptoMoney.marketCap }}</td>
+      <td>{{ cryptoMoney.price }}</td>
+      <td>{{ cryptoMoney.volume }}</td>
+      <td>{{ cryptoMoney.dateLancement }}</td>
+      <td>{{ cryptoMoney.multipleOfTwo }}</td>
+      <td>{{ cryptoMoney.day }}</td>
+      <td>{{ cryptoMoney.orderByVolumeDesc }}</td>
+    </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

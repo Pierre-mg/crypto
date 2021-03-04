@@ -2,13 +2,11 @@
 
 namespace App\Controller;
 
-use DateTime;
-use DOMXPath;
-use DOMDocument;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TestEntretienRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
@@ -46,10 +44,13 @@ class MainController extends AbstractController
             $manager->flush();
         }
         
+        //slugger
+        $slugger = new AsciiSlugger();
+
         //Traitement du low & high
         foreach ($allTest as $cryptoMoney) {
  
-        $html = file_get_contents('https://coinmarketcap.com/currencies/'.$cryptoMoney->getLibelle().'/');
+        $html = file_get_contents('https://coinmarketcap.com/currencies/'.$slugger->slug($cryptoMoney->getLibelle()).'/');
 
         $string = strstr($html, 'High</th>');
 

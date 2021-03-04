@@ -1,9 +1,13 @@
 # crypto
 
--> initialiser le .env.local pour connection DB
--> Faire une doctrine:migration:migrate
--> Lancer la home pour voir le résultat en BDD
+Bonjour Olivier, je souhaitais retravailler le test car mécontent du résultat un peu hors sujet.
+
+## composer install
+## initialiser le .env.local pour connection DB
+## Faire une doctrine:migration:migrate
+## lancer serveur php
+## Lancer la home pour voir le résultat en BDD
 
 Code visible dans le MainController principalement.
 
-Quelques notFound persistent concernant les low and high sur 24h mais l'idée me semble là
+La persistance en DB s'arretes sur un notFound dû au crawler mais l'idée est là.

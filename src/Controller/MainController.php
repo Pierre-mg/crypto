@@ -28,7 +28,6 @@ class MainController extends AbstractController
             //Traitement du jour de la semaine
             $cryptoMoney->setDay(date_format(new \DateTime($cryptoMoney->getDateLancement()), 'l'));
 
-            $manager->persist($cryptoMoney);
             $manager->flush();
         }
 
@@ -40,7 +39,6 @@ class MainController extends AbstractController
             $cryptoMoney->setOrderByVolumeDesc($i);
             $i++;
 
-            $manager->persist($cryptoMoney);
             $manager->flush();
         }
         
@@ -62,7 +60,6 @@ class MainController extends AbstractController
         $cryptoMoney->setLow($low);
         $cryptoMoney->setHigh($high);
 
-        $manager->persist($cryptoMoney);
         $manager->flush();
 
         }
